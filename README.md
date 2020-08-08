@@ -19,3 +19,4 @@ samples, guidance on mobile development, and a full API reference.
 
 - [集成百度地图 SDK](./doc/集成百度地图.md)
 - [IDE插件](./doc/IDE插件.md)
+- [遇到的问题](./doc/遇到的问题.md)
