@@ -13,18 +13,7 @@ import '../common/toast.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // 百度地图sdk初始化鉴权
-  if (Platform.isIOS) {
-    // TODO: 从百度地图中创建 IOS 应用, 获取 AK
-    // 设置ios端ak, android端ak可以直接在清单文件中配置
-    LocationFlutterPlugin.setApiKey("百度地图开放平台申请的ios端ak");
-    // BMFMapSDK.setApiKeyAndCoordType('yFDD3IlfSk2xTdQ0G41MjRnzd5gUVG1C', BMF_COORD_TYPE.BD09LL);
-  } else if (Platform.isAndroid) {
-    // Android 目前不支持接口设置Apikey,
-    // 请在主工程的Manifest文件里设置，详细配置方法请参考官网(https://lbsyun.baidu.com/)demo
-    // BMFMapSDK.setCoordType(BMF_COORD_TYPE.BD09LL);
-  }
+  initBaiduMap();
   runApp(MyApp());
 }
 

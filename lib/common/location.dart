@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:bdmap_location_flutter_plugin/bdmap_location_flutter_plugin.dart';
 import 'package:bdmap_location_flutter_plugin/flutter_baidu_location_android_option.dart';
@@ -6,7 +7,19 @@ import 'package:bdmap_location_flutter_plugin/flutter_baidu_location_ios_option.
 
 import 'toast.dart';
 
-getLocation() async {}
+/// 初始化百度地图, 应该在 main() 函数中调用
+initBaiduMap() {
+  // 百度地图sdk初始化鉴权
+  if (Platform.isIOS) {
+    // TODO: 从百度地图中创建 IOS 应用, 获取 AK
+    LocationFlutterPlugin.setApiKey("百度地图开放平台申请的ios端ak");
+    // BMFMapSDK.setApiKeyAndCoordType('yFDD3IlfSk2xTdQ0G41MjRnzd5gUVG1C', BMF_COORD_TYPE.BD09LL);
+  } else if (Platform.isAndroid) {
+    // Android 目前不支持接口设置Apikey,
+    // 请在主工程的Manifest文件里设置，详细配置方法请参考官网(https://lbsyun.baidu.com/)demo
+    // BMFMapSDK.setCoordType(BMF_COORD_TYPE.BD09LL);
+  }
+}
 
 // 定义类型
 typedef LocationCallback = void Function(Map<String, Object>);

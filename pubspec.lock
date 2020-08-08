@@ -11,10 +11,10 @@ packages:
   bdmap_location_flutter_plugin:
     dependency: "direct main"
     description:
-      path: "plugins/bdmap_location_flutter_plugin"
+      path: "plugins/baidu_location_flutter"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -90,6 +90,27 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bmfbase:
+    dependency: transitive
+    description:
+      name: flutter_bmfbase
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.2"
+  flutter_bmfmap:
+    dependency: "direct main"
+    description:
+      name: flutter_bmfmap
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.2"
+  flutter_bmfutils:
+    dependency: "direct main"
+    description:
+      name: flutter_bmfutils
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.2"
   flutter_isolate:
     dependency: transitive
     description:
