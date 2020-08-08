@@ -1,4 +1,4 @@
-package com.example.runman
+package com.tzh.runman
 
 import io.flutter.embedding.android.FlutterActivity
 
