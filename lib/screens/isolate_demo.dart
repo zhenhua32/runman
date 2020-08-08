@@ -1,12 +1,9 @@
 import 'dart:async';
-import 'dart:io' show Platform;
 
 import 'package:bdmap_location_flutter_plugin/bdmap_location_flutter_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:isolate_handler/isolate_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:flutter_bmfbase/BaiduMap/bmfmap_base.dart';
-// import 'package:flutter_bmfmap/BaiduMap/bmfmap_map.dart';
 
 import '../common/location.dart';
 import '../common/toast.dart';
@@ -23,18 +20,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // Let's create a new IsolateHandler instance. This is what we will use
-  // to spawn isolates.
+  // 创建一个 IsolateHandler, 用于派生 isolate
   final isolates = IsolateHandler();
   LocationFlutterPlugin _locationPlugin = new LocationFlutterPlugin();
-  // BMFMapOptions mapOptions = BMFMapOptions(
-  //     center: BMFCoordinate(39.917215, 116.380341),
-  //     zoomLevel: 12,
-  //     mapPadding: BMFEdgeInsets(left: 30, top: 0, right: 30, bottom: 0));
-  // BMFMapController myMapController;
-  // Size screenSize;
 
-  // Variable where we can store the message.
+  // 保存消息
   List<String> messages = [];
   Timer timer;
   String seconds = '5';
@@ -73,7 +63,6 @@ class _MyAppState extends State<MyApp> {
 
   saveMessage(String msg) {
     // 收到消息时的回调函数
-    // Show the new message.
     setState(() {
       if (messages.length == 0 || messages[messages.length - 1] != msg) {
         messages.add(msg);
@@ -133,16 +122,6 @@ class _MyAppState extends State<MyApp> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('seconds', seconds);
   }
-
-  /// 创建完成回调
-  // void onBMFMapCreated(BMFMapController controller) {
-  //   myMapController = controller;
-
-  //   /// 地图加载回调
-  //   myMapController?.setMapDidLoadCallback(callback: () {
-  //     print('mapDidLoad-地图加载完成');
-  //   });
-  // }
 
   Widget _buildRow(var position) {
     return Container(
@@ -208,38 +187,21 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  // Container _createMap() {
-  //   return Container(
-  //     height: screenSize.height,
-  //     width: screenSize.width,
-  //     child: BMFMapWidget(
-  //       onBMFMapCreated: (controller) {
-  //         onBMFMapCreated(controller);
-  //       },
-  //       mapOptions: mapOptions,
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
-    // screenSize = MediaQuery.of(context).size;
-
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Isolate Handler example'),
-        ),
-        body: Center(
-            child: Column(
-          children: <Widget>[
-            Text('当前设定为每 $seconds 秒获取一次位置'),
-            _createPositionListView(),
-            _createButtonView(),
-            _createInputView(),
-          ],
-        )),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('定位'),
       ),
+      body: Center(
+          child: Column(
+        children: <Widget>[
+          Text('当前设定为每 $seconds 秒获取一次位置'),
+          _createPositionListView(),
+          _createButtonView(),
+          _createInputView(),
+        ],
+      )),
     );
   }
 }

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'config/routes.dart';
 import 'config/theme.dart';
+import 'common/location.dart';
 
 main() {
   WidgetsFlutterBinding.ensureInitialized();
+  initBaiduMap();
   runApp(MyApp());
 }
 
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'RunMan',
       theme: theme,
-      initialRoute: '/isolate_demo',
+      initialRoute: '/',
       routes: routes,
     );
   }
