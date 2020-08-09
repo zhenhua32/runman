@@ -21,6 +21,10 @@ class ShowPage extends StatelessWidget {
             RaisedButton(
               onPressed: () => Navigator.pushNamed(context, '/map_demo'),
               child: Text('地图'),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.pushNamed(context, '/battery_demo'),
+              child: Text('电池'),
             )
           ],
         ),
